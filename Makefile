@@ -9,4 +9,4 @@ stop:
 	docker-compose down
 
 exportkc:
-	docker-compose exec oauth /opt/keycloak/bin/kc.sh export --file /tmp/.config/realm.json --realm taskify
+	docker-compose exec oauth /opt/keycloak/bin/kc.sh export --file /tmp/.config/realm.json
