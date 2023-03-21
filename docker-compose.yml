@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  oauth:
+    image: quay.io/keycloak/keycloak:21.0.1
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - .config:/tmp/.config
+    #  - .config/realm.json:/opt/keycloak/data/import/realm.json
+    command:
+      - start-dev
+      #- --import-realm
+    labels:
+      - "traefik.http.routers.oauth.rule=Host(`oauth.docker.localhost`)"
+
+  app:
+    image: nginx
+    volumes:
+      - ./web/dist:/usr/share/nginx/html
+    labels:
+      - "traefik.http.routers.app.rule=Host(`app.docker.localhost`)"
+
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.9
+    # Enables the web UI and tells Traefik to listen to docker
+    command: --api.insecure=true --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8081:8080"
+    volumes:
+      #- $PWD/traefik.yml:/etc/traefik/traefik.yml
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
