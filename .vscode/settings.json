@@ -3,6 +3,7 @@
   "conventionalCommits.scopes": [
     "testing",
     "ui",
-    "oauth"
+    "oauth",
+    "docs"
   ]
 }
