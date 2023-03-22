@@ -4,6 +4,7 @@
     "testing",
     "ui",
     "oauth",
-    "docs"
+    "docs",
+    "todos"
   ]
 }
