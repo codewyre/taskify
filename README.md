@@ -6,12 +6,22 @@ Done with:
 - Solid.js (Web App)
 - Keycloak (Authentication)
 
-## Makefile ops
 
+### Initialize
 ```sh
-make init # Install deps
+# Install dependencies for API and Web Project
+make init
 ```
 
+### Build API & Web Application
 ```sh
-make start # Start thirdparty tools like reverse proxy, idp and db
+# Start thirdparty tools like reverse proxy, idp and db
+make build
 ```
+
+### Start ThirdParty Services
+```sh
+# Start thirdparty tools like reverse proxy, idp and db
+make start
+```
+

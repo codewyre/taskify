@@ -2,6 +2,10 @@ init:
 	cd web && yarn
 	cd api && mvn install
 
+build:
+	cd api && mvn package
+	cd web && yarn build
+
 start:
 	docker-compose up -d
 
