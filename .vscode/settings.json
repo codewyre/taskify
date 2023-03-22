@@ -1,3 +1,8 @@
 {
-  "java.compile.nullAnalysis.mode": "automatic"
+  "java.compile.nullAnalysis.mode": "automatic",
+  "conventionalCommits.scopes": [
+    "testing",
+    "ui",
+    "oauth"
+  ]
 }
