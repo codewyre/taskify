@@ -7,6 +7,8 @@ import net.codewyre.taskify.services.TodoService;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TodoController {
   //#region Private Fields
   private final TodoService _todoService;
+  public Logger logger = LoggerFactory.getLogger(TodoController.class);
   //#endregion
 
   //#region Ctor
@@ -28,10 +31,13 @@ public class TodoController {
   //#region Public Methods
   @GetMapping("/")
   @CrossOrigin(origins = "*")
-  ResponseEntity<List<Todo>> home() {
+  ResponseEntity<List<Todo>> getTodos() {
+    this.logger.debug("Begin getTodos");
     var todos = this._todoService.getTodos();
 
-    return ResponseEntity.ok(todos);
+    var response = ResponseEntity.ok(todos);
+    this.logger.debug("End getTodos with response", response);
+    return response;
   }
   //#endregion
 }
