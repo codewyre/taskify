@@ -8,10 +8,10 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
     volumes:
       - .config:/tmp/.config
-    #  - .config/realm.json:/opt/keycloak/data/import/realm.json
+      - .config/realm.json:/opt/keycloak/data/import/realm.json
     command:
       - start-dev
-      #- --import-realm
+      - --import-realm
     labels:
       - "traefik.http.routers.oauth.rule=Host(`oauth.docker.localhost`)"
 
