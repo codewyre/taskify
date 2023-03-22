@@ -6,6 +6,10 @@ build:
 	cd api && mvn package
 	cd web && yarn build
 
+test:
+	cd api && mvn test
+	cd web && yarn test
+
 start:
 	docker-compose up -d
 

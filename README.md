@@ -60,7 +60,7 @@ make start
 ### Tests and Code Analysis
 
 ```sh
-  # n/a
+make test
 ```
 
 ## Other Information

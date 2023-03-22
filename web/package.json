@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "test": "echo 'Currently, there are no tests configured for the web project!'"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.21.0",
