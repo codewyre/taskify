@@ -17,6 +17,8 @@ export function PresentationComponent() {
     setTodos(await response.json());
   }
 
+  initialize();
+
   return (<div>
     <For each={todos()}>
       {todo => (
