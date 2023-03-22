@@ -46,7 +46,7 @@ class App {
   private render(): App {
     render(
       () => <DependencyInjectionContext.Provider value={this._container}>
-        <PresentationComponent />,
+        <PresentationComponent />
       </DependencyInjectionContext.Provider>,
       document.getElementById("app")!);
 
