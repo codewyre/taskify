@@ -8,9 +8,58 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T23:33:31.595Z",
-    "modified": "2023-03-21T23:34:04.869Z",
+    "modified": "2023-03-24T00:46:02.470Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJURGtsd2NHbEwtVEFFUmxjaFVXdE1MeEY4ZzlqVEV0QXpYWmJ1SkxLM1VjIn0.eyJleHAiOjE2Nzk2MTkwNTcsImlhdCI6MTY3OTYxODc1NywianRpIjoiOTAzYzQzNzMtZTc2YS00OTE2LWE1ZjYtZjZkOGFkOTEwMjA5IiwiaXNzIjoiaHR0cDovL29hdXRoLmRvY2tlci5sb2NhbGhvc3QvcmVhbG1zL3Rhc2tpZnkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZWMxZGU2NGEtNDVmNi00ZDcwLTlmNjYtNGVmZDI2NjUwZjNjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidGFza2lmeS1pbnRlZ3JhdGlvbi10ZXN0Iiwic2Vzc2lvbl9zdGF0ZSI6ImE5NjZiNTFjLWY2MTgtNDc1Mi05ODk2LTcyZmQ3NWE0NzA3NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImFkbWluaXN0cmF0b3IiLCJkZWZhdWx0LXJvbGVzLXRhc2tpZnkiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidGFza2lmeS1pbnRlZ3JhdGlvbi10ZXN0Ijp7InJvbGVzIjpbImJsdWIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImE5NjZiNTFjLWY2MTgtNDc1Mi05ODk2LTcyZmQ3NWE0NzA3NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX2JsdWIiXSwibmFtZSI6IkhvYmFydCBHcmFwcGxlaGFtbWVyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiaG9iYXJ0QGdyYXBwbGVoYW1tZXIuY29tIiwiYWNsIjpbIlJPTEVfYmx1YiJdLCJnaXZlbl9uYW1lIjoiSG9iYXJ0IiwiZmFtaWx5X25hbWUiOiJHcmFwcGxlaGFtbWVyIiwiZW1haWwiOiJob2JhcnRAZ3JhcHBsZWhhbW1lci5jb20iLCJhY2xfcmVhbG0iOlsiUk9MRV9hZG1pbmlzdHJhdG9yIiwiUk9MRV9vZmZsaW5lX2FjY2VzcyIsIlJPTEVfdW1hX2F1dGhvcml6YXRpb24iLCJST0xFX2RlZmF1bHQtcm9sZXMtdGFza2lmeSJdfQ.JYr3kC-hQIp3bV7iwJjnHPrKGO9x7QNKbSe7l_L0EuUTR8nnQ50xZ9bM7J2lLJVSK76q2l47rUEaosOUCdSc6A2Jfu2AscigYHXTE068uny142zsqY6K5oniH19A7GSmKZWlKaoKFHLYoLswUjVIV4RUtMxJirw0iJVobdyWa7tUokLoBYotT25zZGPmZUXzDXPYQyg7fXplHArif5jJ_84tpt5B_3c6iAJTlKpaZr5fy8mBPD7IULpfFi9hcDXOfA0tufH9b11lob_GRL-TLtUlbRcggVwvjiOkIIkMTqjh39I9Cx0-LruegsEwFARWgQlOQcDte4_CAgiB8oaVfA"
+    },
+    "tests": []
+  },
+  {
+    "_id": "c76a5227-feb5-433c-8938-359bbadaeefb",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get Token",
+    "url": "http://127.0.0.1/realms/taskify/protocol/openid-connect/token",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-23T22:21:23.043Z",
+    "modified": "2023-03-23T23:58:32.109Z",
+    "headers": [
+      {
+        "name": "host",
+        "value": "oauth.docker.localhost"
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/x-www-form-urlencoded"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formencoded",
+      "raw": "",
+      "form": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "hobart@grapplehammer.com"
+        },
+        {
+          "name": "password",
+          "value": "Dev12345!"
+        },
+        {
+          "name": "client_id",
+          "value": "taskify-integration-test"
+        }
+      ]
+    },
     "tests": []
   }
 ]
