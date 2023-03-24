@@ -34,7 +34,7 @@ public class TodoController {
   //#region Public Methods
   @GetMapping("/")
   @CrossOrigin(origins = "*")
-  @PreAuthorize("hasRole('ROLE_blub')")
+  @PreAuthorize("isFullyAuthenticated()")
   ResponseEntity<List<Todo>> getTodos() {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     this.logger.info("Begin getTodos for " + auth.getName());

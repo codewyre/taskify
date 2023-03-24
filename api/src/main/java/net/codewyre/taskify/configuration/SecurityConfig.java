@@ -18,9 +18,11 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
     http
+      .cors()
+      .and()
       .authorizeHttpRequests()
       .anyRequest()
-      .authenticated()
+      .permitAll()
       .and()
       .oauth2ResourceServer()
       .jwt()
