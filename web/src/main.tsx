@@ -8,6 +8,8 @@ import { application } from './decorators/application.decorator';
 import { AuthenticationService } from './services/authentication.service';
 import { DependencyInjectionContext } from './contexts/dependency-injection.context';
 
+import './styles/global.scss';
+
 @application()
 class App {
   //#region Private Fields
