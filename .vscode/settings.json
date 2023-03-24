@@ -5,6 +5,7 @@
     "ui",
     "oauth",
     "docs",
-    "todos"
+    "todos",
+    "permissions"
   ]
 }
