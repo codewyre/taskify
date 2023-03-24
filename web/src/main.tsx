@@ -1,12 +1,14 @@
 import 'reflect-metadata';
 
 import { render } from "solid-js/web";
-import { Container } from 'inversify';
+import { Container, interfaces } from 'inversify';
 
-import { PresentationComponent } from './views/presentation/presentation.component';
+import { DependencyInjectionContext } from './contexts/dependency-injection.context';
 import { application } from './decorators/application.decorator';
 import { AuthenticationService } from './services/authentication.service';
-import { DependencyInjectionContext } from './contexts/dependency-injection.context';
+import { TodoService } from './services/todo.service';
+
+import { PresentationComponent } from './views/presentation/presentation.component';
 
 import './styles/global.scss';
 
@@ -37,8 +39,9 @@ class App {
   private buildContainer(): App {
     const container = new Container();
 
-    const services = [
-      AuthenticationService
+    const services: interfaces.ServiceIdentifier[] = [
+      AuthenticationService,
+      TodoService
     ];
 
     for (const service of services) {
