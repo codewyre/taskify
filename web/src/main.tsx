@@ -37,10 +37,16 @@ class App {
   private buildContainer(): App {
     const container = new Container();
 
-    container
-      .bind(AuthenticationService)
-      .toSelf()
-      .inSingletonScope();
+    const services = [
+      AuthenticationService
+    ];
+
+    for (const service of services) {
+      container
+        .bind(service)
+        .toSelf()
+        .inSingletonScope();
+    }
 
     this._container = container;
 
