@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "build:theme-default": "node-sass ./src/styles/themes/default.scss ./dist/theme-default.css",
+    "build:theme-default-dark": "node-sass ./src/styles/themes/default-dark.scss ./dist/theme-default-dark.css",
+    "build:theme-default-light": "node-sass ./src/styles/themes/default-light.scss ./dist/theme-default-light.css",
     "test": "echo 'Currently, there are no tests configured for the web project!'"
   },
   "devDependencies": {

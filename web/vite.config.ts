@@ -24,7 +24,8 @@ export default defineConfig({
     run({
       hook: 'buildEnd',
       commands: [
-        'yarn build:theme-default'
+        'yarn build:theme-default-dark',
+        'yarn build:theme-default-light'
       ]
     })
   ],
