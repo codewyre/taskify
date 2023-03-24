@@ -1,8 +1,10 @@
 import 'reflect-metadata';
+
 import { render } from "solid-js/web";
+import { Container } from 'inversify';
+
 import { PresentationComponent } from './views/presentation/presentation.component';
 import { application } from './decorators/application.decorator';
-import { Container } from 'inversify';
 import { AuthenticationService } from './services/authentication.service';
 import { DependencyInjectionContext } from './contexts/dependency-injection.context';
 
