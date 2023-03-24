@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import copy from 'rollup-plugin-copy';
+import run from 'rollup-plugin-shell';
 
 export default defineConfig({
   build: {
@@ -20,5 +21,11 @@ export default defineConfig({
         dest: 'dist/',
       }]
     }),
+    run({
+      hook: 'buildEnd',
+      commands: [
+        'yarn build:theme-default'
+      ]
+    })
   ],
 });

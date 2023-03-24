@@ -5,11 +5,14 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
+    "build:theme-default": "node-sass ./src/styles/themes/default.scss ./dist/theme-default.css",
     "test": "echo 'Currently, there are no tests configured for the web project!'"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.21.0",
+    "node-sass": "^8.0.0",
     "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-shell": "^1.0.9",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vite-plugin-solid": "^2.6.1"
