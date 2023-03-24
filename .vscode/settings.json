@@ -6,6 +6,7 @@
     "oauth",
     "docs",
     "todos",
-    "permissions"
+    "permissions",
+    "app"
   ]
 }
