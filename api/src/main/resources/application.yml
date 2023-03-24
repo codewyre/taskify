@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://oauth.docker.localhost/realms/taskify
+        #jwk-set-uri: http://oauth.docker.localhost/realms/taskify/protocol/openid-connect/certs
+      # client:
+      #   registration:
+      #     keycloak:
+      #       client-id: taskify-api
+      #       client-secret: UXOxdMxRjirlamwwbf3bmp0OmGqc36EO
+      #       authorization-grant-type: authorization_code
+      #       redirect-uri: http://app.docker.localhost
+      #   provider:
+      #     # http://oauth.docker.localhost/realms/taskify/.well-known/openid-configuration
+      #     keycloak:
+      #       issuer-uri: http://oauth.docker.localhost/realms/taskify
+      #       authorization-uri: http://oauth.docker.localhost/realms/taskify/protocol/openid-connect/auth
+      #       token-uri: http://oauth.docker.localhost/realms/taskify/protocol/openid-connect/token
+      #       user-info-uri: http://oauth.docker.localhost/realms/taskify/protocol/openid-connect/userinfo
