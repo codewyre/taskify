@@ -11,7 +11,7 @@
       "mainClass": "net.codewyre.taskify.TaskifyApplication",
       "projectName": "taskify",
       "env": {
-        "_JAVA_OPTIONS": "-Dlogging.level.org.springframework=DEBUG"
+        //"_JAVA_OPTIONS": "-Dlogging.level.org.springframework=DEBUG"
       }
     }
   ]
