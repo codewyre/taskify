@@ -14,11 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
-public class TodoController {
+public class TodoController extends KeycloakSecuredController {
   //#region Private Fields
   private final TodoService _todoService;
   public Logger logger = LoggerFactory.getLogger(TodoController.class);
@@ -36,8 +38,7 @@ public class TodoController {
   @CrossOrigin(origins = "*")
   @PreAuthorize("isFullyAuthenticated()")
   ResponseEntity<List<Todo>> getTodos() {
-    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    this.logger.info("Begin getTodos for " + auth.getName());
+    this.logger.info("Begin getTodos for " + this.getUserId());
     var todos = this._todoService.getTodos();
 
     var response = ResponseEntity.ok(todos);
