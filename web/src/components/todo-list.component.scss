@@ -1,0 +1,21 @@
+.todo-list {
+  h1 {
+    padding: 20px 16px 0 16px;
+  }
+
+  &-items {
+    display: flex;
+    width: 100%;
+
+    &__entry {
+      display: flex;
+      flex: 1 0 auto;
+      padding: 12px 16px;
+
+      &:hover {
+        background: var(--app-bg--hover);
+        cursor: pointer;
+      }
+    }
+  }
+}
