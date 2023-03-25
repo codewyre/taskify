@@ -7,6 +7,23 @@
     "docs",
     "todos",
     "permissions",
-    "app"
-  ]
+    "app",
+    "datanase"
+  ],
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3336,
+      "driver": "MariaDB",
+      "name": "docker taskify",
+      "database": "taskify",
+      "username": "root",
+      "password": "root"
+    }
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic"
 }

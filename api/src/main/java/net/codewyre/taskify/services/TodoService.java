@@ -1,6 +1,7 @@
 package net.codewyre.taskify.services;
 
-import java.util.ArrayList;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -10,19 +11,31 @@ import net.codewyre.taskify.models.Todo;
 
 @Service
 public class TodoService {
+  private final TodoRepository _todoRepository;
+
+  //#region Ctor
+  public TodoService(TodoRepository repository) {
+    this._todoRepository = repository;
+  }
+  //#endregion
+
   //#region Public Methods
-  public List<Todo> getTodos() {
-    var todos = new ArrayList<Todo>();
+  public List<Todo> getTodosForUser(String userId) throws
+    InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
+    NoSuchMethodException, SecurityException, SQLException {
 
-    var todo = new Todo();
-    todo.Author = "Hobart";
-    todo.Created = new Date();
-    todo.LastModified = new Date();
-    todo.Title = "Clean room";
+    var entities = this._todoRepository.getTodosForUser(userId);
 
-    todos.add(todo);
-
-    return todos;
+    return entities
+      .stream()
+      .map(entity -> {
+        var todo = new Todo();
+        todo.Author = entity.Author;
+        todo.Created = new Date();
+        todo.LastModified = new Date();
+        todo.Title = entity.Title;
+        return todo;
+      }).toList();
   }
   //#endregion
 }
