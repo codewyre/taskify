@@ -1,4 +1,6 @@
 spring:
+  jackson:
+    property-naming-strategy: net.codewyre.taskify.configuration.LowerCamelCaseStrategy
   security:
     oauth2:
       resourceserver:
