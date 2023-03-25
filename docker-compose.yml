@@ -15,6 +15,17 @@ services:
     labels:
       - "traefik.http.routers.oauth.rule=Host(`oauth.docker.localhost`)"
 
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - 3336:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - .config/db/0.schema.sql:/docker-entrypoint-initdb.d/0.schema.sql
+      - .config/db/1.data.sql:/docker-entrypoint-initdb.d/1.data.sql
+
   app:
     image: nginx
     volumes:
