@@ -29,7 +29,8 @@ export class TodoService {
     const response = await fetch('http://localhost:8080/', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${jwt}`
+        Authorization: `Bearer ${jwt}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         title: subject,
