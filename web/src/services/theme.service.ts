@@ -1,3 +1,6 @@
+import { injectable } from 'inversify';
+
+@injectable()
 export class ThemeService {
   public selectTheme(name: string): void {
     const cssClasses = Array.from(document.body.classList);

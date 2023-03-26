@@ -1,5 +1,6 @@
 .header-bar {
-  background: rgba(var(--app-fg), 0.2);
+  transition: background-color .3s ease-in-out;
+  background-color: rgba(var(--app-fg), 0.2);
   width: 100%;
   padding: 16px;
 }

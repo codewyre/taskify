@@ -11,9 +11,10 @@
       display: flex;
       flex: 1 0 auto;
       padding: 12px 16px;
+      transition: background-color .3s ease-in-out;
 
       &:hover {
-        background: rgb(var(--app-bg--hover));
+        background-color: rgb(var(--app-bg--hover));
         cursor: pointer;
       }
     }

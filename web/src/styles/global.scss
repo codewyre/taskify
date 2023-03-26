@@ -10,6 +10,9 @@ body {
   background: rgb(var(--app-bg));
   color: rgb(var(--app-fg));
 
+  transition: background-color .3s ease-in-out,
+              color .3s ease-in-out;
+
   font-family: 'Titillium Web', sans-serif;
   user-select: none;
 }

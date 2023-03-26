@@ -11,6 +11,7 @@ import { TodoService } from './services/todo.service';
 import { PresentationComponent } from './views/presentation/presentation.component';
 
 import './styles/global.scss';
+import { ThemeService } from './services/theme.service';
 
 @application()
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +37,8 @@ class App {
 
     const services: interfaces.ServiceIdentifier[] = [
       AuthenticationService,
-      TodoService
+      TodoService,
+      ThemeService
     ];
 
     for (const service of services) {

@@ -9,6 +9,7 @@ $border-width: 1px;
 
   &__frame {
     border: $border-width rgb(var(--app-fg)) solid;
+    transition: border-color .3s ease-in-out;
     border-radius: 2px;
     padding: $padding;
     box-sizing: border-box;
@@ -23,9 +24,10 @@ $border-width: 1px;
       left: 1px;
       border-radius: 2px;
 
-      transition: left .3s ease-in-out;
+      transition: left .3s ease-in-out
+                  background-color .3s ease-in-out;
 
-      background: rgb(var(--app-fg));
+      background-color: rgb(var(--app-fg));
       height: $toggle-size;
       width: $toggle-size;
 
