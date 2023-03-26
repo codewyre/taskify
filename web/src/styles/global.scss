@@ -1,12 +1,14 @@
 @import "../components/todo-list.component";
+@import "../components/header-bar/header-bar.component";
+@import "../controls/toggle-switch/toggle-switch";
 @import "./controls/checkbox";
 
 body {
   margin: 0;
   padding: 0;
 
-  background: var(--app-bg);
-  color: var(--app-fg);
+  background: rgb(var(--app-bg));
+  color: rgb(var(--app-fg));
 
   font-family: 'Titillium Web', sans-serif;
   user-select: none;

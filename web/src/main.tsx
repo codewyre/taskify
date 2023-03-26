@@ -22,8 +22,8 @@ class App {
   public static async main(): Promise<void> {
     await new App()
       .buildContainer()
-      .authorizeUser().then(app => app
-      .render());
+      //.authorizeUser().then(app => app
+      .render();
   }
 
   private async authorizeUser(): Promise<App> {
