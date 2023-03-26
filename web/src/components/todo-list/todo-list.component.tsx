@@ -1,6 +1,6 @@
 import { createResource, For, JSX } from 'solid-js';
-import { useDependency } from '../contexts/dependency-injection.context';
-import { TodoService } from '../services/todo.service';
+import { useDependency } from '../../contexts/dependency-injection.context';
+import { TodoService } from '../../services/todo.service';
 
 export function TodoListComponent(): JSX.Element {
   const todoService: TodoService = useDependency(TodoService);
