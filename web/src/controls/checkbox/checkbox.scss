@@ -1,0 +1,48 @@
+$toggle-size: 24px;
+$padding: 1px;
+$border-width: 1px;
+
+.checkbox {
+  display: flex;
+
+  line-height: $toggle-size + $padding * 2 + $border-width * 2;
+
+  &__frame {
+    border: $border-width rgba(var(--primary-accent), .2) solid;
+    transition: border-color .3s ease-in-out;
+    border-radius: 2px;
+    padding: $padding;
+    box-sizing: border-box;
+
+    width: $toggle-size + $padding*2 + $border-width*2;
+    height: $toggle-size + $padding*2 + $border-width*2;
+
+    &:hover {
+      border-color: rgba(var(--primary-accent), .55);
+
+      .checkbox__frame__toggle {
+        background-color: rgba(var(--primary-accent), .55);
+      }
+    }
+
+    &__toggle {
+      transform: scale(0);
+      border-radius: 2px;
+
+      transition: transform .1s ease-in-out,
+                  background-color .3s ease-in-out;
+
+      background-color: rgba(var(--primary-accent), .3);
+      height: $toggle-size;
+      width: $toggle-size;
+
+      &--active {
+        transform: scale(1);
+      }
+    }
+
+    + * {
+      margin-left: calc($toggle-size / 3);
+    }
+  }
+}

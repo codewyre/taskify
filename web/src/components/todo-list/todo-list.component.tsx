@@ -1,7 +1,9 @@
 import { createResource, createSignal, For, JSX, Show } from 'solid-js';
 import { useDependency } from '../../contexts/dependency-injection.context';
+import { Checkbox } from '../../controls/checkbox/checkbox';
 import { TextField } from '../../controls/text-field/text-field';
 import { TodoService } from '../../services/todo.service';
+import { TodoComponent } from '../todo/todo.component';
 
 export function TodoListComponent(): JSX.Element {
   const todoService: TodoService = useDependency(TodoService);
@@ -32,17 +34,7 @@ export function TodoListComponent(): JSX.Element {
       </Show>
       <Show when={todos().length}>
         <For each={todos()}>
-          {todo => (
-            <div class="todo-list-items__entry">
-              <div>
-                <div class="checkbox">
-                  <input type="checkbox" />
-                </div>
-              </div>
-              <div>{todo.title}</div>
-              <div>{todo.author}</div>
-            </div>
-          )}
+          {todo => (<TodoComponent todo={todo}></TodoComponent>)}
         </For>
       </Show>
     </div>

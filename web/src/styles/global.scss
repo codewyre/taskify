@@ -1,7 +1,9 @@
 @import "../components/todo-list/todo-list.component";
+@import "../components/todo/todo.component";
 @import "../components/header-bar/header-bar.component";
 
 @import "../controls/toggle-switch/toggle-switch";
+@import "../controls/checkbox/checkbox";
 @import "../controls/text-field/text-field";
 @import "./controls/checkbox";
 :root {

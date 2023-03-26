@@ -1,0 +1,27 @@
+.todo-list-items__entry {
+  display: flex;
+  flex: 1;
+  min-width: 100%;
+  padding: 12px 16px;
+  transition:
+    background-color .3s ease-in-out,
+    height .3s ease-in-out,
+    padding .3s ease-in-out;
+  height: 52px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .checkbox {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: rgb(var(--app-bg--hover));
+    cursor: pointer;
+  }
+
+  &--hidden {
+    height: 0;
+    padding: 0 16px;
+  }
+}

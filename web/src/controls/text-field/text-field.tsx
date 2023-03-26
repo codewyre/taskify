@@ -9,7 +9,6 @@ export interface TextFieldProps {
 
 export function TextField(props: TextFieldProps): JSX.Element {
   let inputControl: HTMLInputElement;
-  const textValue = (): string|undefined => props.text;
 
   function processSubmit(): void {
     props.onSubmit && props.onSubmit(inputControl?.value);
@@ -24,7 +23,7 @@ export function TextField(props: TextFieldProps): JSX.Element {
       onKeyUp={e => e.code.endsWith('Enter') && processSubmit()}
       class="input-field__control"
       ref={val => inputControl = val}
-      value={textValue()}/>
+      value={props.text}/>
     <div class="input-field__action">
       {props.children && props.children(() => processSubmit())}
     </div>

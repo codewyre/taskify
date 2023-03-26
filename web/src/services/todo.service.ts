@@ -14,7 +14,7 @@ export class TodoService {
   public async getMyTodos(): Promise<Todo[]> {
     const { jsonWebToken: jwt } = this._authenticationService;
 
-    const response = await fetch('http://localhost:8080/', {
+    const response = await fetch('http://localhost:8080/todo', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -23,10 +23,23 @@ export class TodoService {
     return response.json();
   }
 
+  public async markAs(id: string, checked: boolean): Promise<void> {
+    const { jsonWebToken: jwt } = this._authenticationService;
+
+    await fetch(`http://localhost:8080/todo/${id}/state`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${jwt}`
+      },
+      body: JSON.stringify(checked)
+    });
+  }
+
+
   public async createTodo(subject: string): Promise<Todo> {
     const { jsonWebToken: jwt } = this._authenticationService;
 
-    const response = await fetch('http://localhost:8080/', {
+    const response = await fetch('http://localhost:8080/todo', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${jwt}`,
