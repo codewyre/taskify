@@ -8,7 +8,7 @@
     "todos",
     "permissions",
     "app",
-    "datanase"
+    "database"
   ],
   "sqltools.connections": [
     {
