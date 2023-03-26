@@ -7,6 +7,14 @@
     display: flex;
     width: 100%;
 
+    .done {
+      flex: 1;
+      padding: 0 100px;
+      box-sizing: border-box;
+      text-align: center;
+      font-weight: light;
+    }
+
     &__entry {
       display: flex;
       flex: 1 0 auto;
