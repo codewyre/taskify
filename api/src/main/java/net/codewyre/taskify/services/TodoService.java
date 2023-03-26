@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import net.codewyre.taskify.models.CreateTodoRequest;
 import net.codewyre.taskify.models.Todo;
+import net.codewyre.taskify.models.TodoEntity;
 
 @Service
 public class TodoService {
@@ -28,14 +30,24 @@ public class TodoService {
 
     return entities
       .stream()
-      .map(entity -> {
-        var todo = new Todo();
-        todo.Author = entity.Author;
-        todo.Created = new Date();
-        todo.LastModified = new Date();
-        todo.Title = entity.Title;
-        return todo;
-      }).toList();
+      .map(entity -> this.toTodoEntity(entity))
+      .toList();
+  }
+
+  public Todo createTodo(CreateTodoRequest payload, String userId) throws SQLException {
+    var todoEntity = this._todoRepository.insertNewTodo(userId, payload.Title);
+    return this.toTodoEntity(todoEntity);
+  }
+  //#endregion
+
+  //#region Private Methods
+  private Todo toTodoEntity(TodoEntity entity) {
+    var todo = new Todo();
+    todo.Author = entity.Author;
+    todo.Created = new Date();
+    todo.LastModified = new Date();
+    todo.Title = entity.Title;
+    return todo;
   }
   //#endregion
 }

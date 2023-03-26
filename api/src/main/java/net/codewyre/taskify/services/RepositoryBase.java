@@ -32,6 +32,12 @@ public class RepositoryBase {
     return variableValue;
   }
 
+  protected void execute(String query) throws SQLException {
+    try (PreparedStatement statement = this._connection.prepareStatement(query)) {
+      statement.execute();
+    }
+  }
+
   protected <T> Collection<T> queryEntities(String query, Class<T> targetClass) throws
     SQLException, InstantiationException, IllegalAccessException, IllegalArgumentException,
     InvocationTargetException, NoSuchMethodException, SecurityException {
