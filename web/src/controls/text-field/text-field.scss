@@ -1,0 +1,41 @@
+.input-field {
+  border: 1px rgba(var(--primary-accent), .1) solid;
+  background-color: rgba(var(--app-fg), .1);
+  color: rgba(var(--app-fg), .7);
+  display: flex;
+  transition:
+    border-color .3s ease-in-out,
+    background-color .3s ease-in-out,
+    color .3s ease-in-out;
+
+  &:hover, &:focus, &:active, &:has(> input:focus) {
+    border: 1px rgba(var(--primary-accent), .55) solid;
+
+    .input-field__action {
+      color: rgba(var(--primary-accent), .55);
+
+    }
+  }
+
+  &__action {
+    line-height: 35px;
+    padding: 0 6px;
+    color: rgba(var(--primary-accent), .1);
+    transition:
+      border-color .3s ease-in-out,
+      background-color .3s ease-in-out,
+      color .3s ease-in-out;
+
+  }
+
+  &__control {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(var(--app-fg), .7);
+    transition: color .3s ease-in-out;
+  }
+}

@@ -8,6 +8,10 @@ export class AuthenticationService {
   //#endregion
 
   //#region Properties
+  public get userId(): string {
+    return this._keycloak?.subject as string;
+  }
+
   public get jsonWebToken(): string {
     return this._keycloak?.token as string;
   }

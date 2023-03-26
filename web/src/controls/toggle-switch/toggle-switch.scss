@@ -1,4 +1,4 @@
-$toggle-size: 16px;
+$toggle-size: 24px;
 $padding: 1px;
 $border-width: 1px;
 
@@ -8,7 +8,7 @@ $border-width: 1px;
   line-height: $toggle-size + $padding * 2 + $border-width * 2;
 
   &__frame {
-    border: $border-width rgb(var(--app-fg)) solid;
+    border: $border-width rgba(var(--primary-accent), .2) solid;
     transition: border-color .3s ease-in-out;
     border-radius: 2px;
     padding: $padding;
@@ -19,6 +19,18 @@ $border-width: 1px;
 
     position: relative;
 
+    .toggle-switch__frame__toggle {
+      transition: background-color .3s ease-in-out;
+    }
+
+    &:hover {
+      border-color: rgba(var(--primary-accent), .55);
+
+      .toggle-switch__frame__toggle {
+        background-color: rgba(var(--primary-accent), .55);
+      }
+    }
+
     &__toggle {
       position: absolute;
       left: 1px;
@@ -27,12 +39,14 @@ $border-width: 1px;
       transition: left .3s ease-in-out
                   background-color .3s ease-in-out;
 
-      background-color: rgb(var(--app-fg));
+      background-color: rgba(var(--app-fg), .5);
       height: $toggle-size;
       width: $toggle-size;
 
       &--active {
+        background-color: rgba(var(--primary-accent), .3);
         left: 1px + $toggle-size;
+
       }
     }
 

@@ -22,5 +22,22 @@ export class TodoService {
 
     return response.json();
   }
+
+  public async createTodo(subject: string): Promise<Todo> {
+    const { jsonWebToken: jwt } = this._authenticationService;
+
+    const response = await fetch('http://localhost:8080/', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwt}`
+      },
+      body: JSON.stringify({
+        title: subject,
+        author: this._authenticationService.userId
+      } as Omit<Todo, 'id'>)
+    });
+
+    return response.json();
+  }
   //#endregion
 }

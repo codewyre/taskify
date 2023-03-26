@@ -1,13 +1,27 @@
-import { createResource, For, JSX, Show } from 'solid-js';
+import { createResource, createSignal, For, JSX, Show } from 'solid-js';
 import { useDependency } from '../../contexts/dependency-injection.context';
+import { TextField } from '../../controls/text-field/text-field';
 import { TodoService } from '../../services/todo.service';
 
 export function TodoListComponent(): JSX.Element {
   const todoService: TodoService = useDependency(TodoService);
 
-  const [todos] = createResource(
+  const [addTaskText, setAddTaskText] = createSignal('');
+  const [todos, { mutate: updateTodos }] = createResource(
     () => todoService.getMyTodos(),
     { initialValue: [] });
+
+  async function createTodo(subject: string): Promise<void> {
+    setAddTaskText(subject);
+
+    const todo = await todoService.createTodo(subject);
+    updateTodos(todos => [
+      ...todos,
+      todo
+    ]);
+
+    setAddTaskText('');
+  }
 
   return (<div class="todo-list">
     <div class="todo-list-items">
@@ -31,6 +45,19 @@ export function TodoListComponent(): JSX.Element {
           )}
         </For>
       </Show>
+    </div>
+    <div classList={{
+      "todo-list__add-new": true
+    }}>
+      <TextField
+        placeholder="Add task..."
+        text={addTaskText()}
+        onSubmit={(text) => createTodo(text)}>
+        { submit => (
+          <span onClick={() => submit()}>
+            ➡
+          </span>)}
+      </TextField>
     </div>
   </div>);
 }

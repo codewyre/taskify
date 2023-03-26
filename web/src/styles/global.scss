@@ -1,7 +1,12 @@
 @import "../components/todo-list/todo-list.component";
 @import "../components/header-bar/header-bar.component";
+
 @import "../controls/toggle-switch/toggle-switch";
+@import "../controls/text-field/text-field";
 @import "./controls/checkbox";
+:root {
+  --primary-accent: 0, 255, 0;
+}
 
 body {
   margin: 0;
