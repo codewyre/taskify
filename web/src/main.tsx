@@ -13,15 +13,10 @@ import { PresentationComponent } from './views/presentation/presentation.compone
 import './styles/global.scss';
 
 @application()
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class App {
   //#region Private Fields
   private _container: Container | null = null;
-  //#endregion
-
-  //#region Ctor
-  public constructor() {
-
-  }
   //#endregion
 
   public static async main(): Promise<void> {
@@ -57,11 +52,16 @@ class App {
   }
 
   private render(): App {
+    const appContainer = document.getElementById("app");
+    if (!appContainer) {
+      throw new Error('Could not find #app container element in DOM.');
+    }
+
     render(
       () => <DependencyInjectionContext.Provider value={this._container}>
         <PresentationComponent />
       </DependencyInjectionContext.Provider>,
-      document.getElementById("app")!);
+      appContainer);
 
     return this;
   }
