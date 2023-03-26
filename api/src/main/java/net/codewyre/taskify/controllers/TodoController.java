@@ -35,7 +35,7 @@ public class TodoController extends KeycloakSecuredController {
   //#endregion
 
   //#region Public Methods
-  @GetMapping("/")
+  @GetMapping("/todo")
   @CrossOrigin(origins = "*")
   @PreAuthorize("isFullyAuthenticated()")
   ResponseEntity<List<Todo>> getTodos() throws
@@ -50,10 +50,10 @@ public class TodoController extends KeycloakSecuredController {
     return response;
   }
 
-  @PostMapping("/")
+  @PostMapping("/todo")
   @CrossOrigin(origins = "*")
   @PreAuthorize("isFullyAuthenticated()")
-  ResponseEntity<Todo> getTodos(@RequestBody CreateTodoRequest payload) throws
+  ResponseEntity<Todo> createTodo(@RequestBody CreateTodoRequest payload) throws
     InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
     NoSuchMethodException, SecurityException, SQLException {
 
