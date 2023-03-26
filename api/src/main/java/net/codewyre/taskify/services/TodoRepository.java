@@ -50,8 +50,12 @@ public class TodoRepository extends RepositoryBase {
           todos (
             `id`,
             `subject`,
-            `author`)
-        VALUES (''{0}'', ''{1}'', ''{2}'');
+            `author`,
+            `created`,
+            `lastModified`,
+            `state`,
+            `description`)
+        VALUES (''{0}'', ''{1}'', ''{2}'', NOW(), NOW(), 0, '''');
       """,
       this.escape(entity.Id),
       this.escape(entity.Title),
