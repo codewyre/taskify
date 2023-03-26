@@ -12,6 +12,6 @@ public class LowerCamelCaseStrategy extends NamingBase {
 
   @Override
   public String translate(String input) {
-      return input.substring(0, 1).toLowerCase() + input.substring(1);
+    return input.substring(0, 1).toLowerCase() + input.substring(1);
   }
 }
