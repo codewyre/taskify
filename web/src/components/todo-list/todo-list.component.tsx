@@ -10,9 +10,6 @@ export function TodoListComponent(): JSX.Element {
     { initialValue: [] });
 
   return (<div class="todo-list">
-    <div>
-      <h1>Open Todos:</h1>
-    </div>
     <div class="todo-list-items">
       <Show when={!todos().length}>
         <div class="done">
