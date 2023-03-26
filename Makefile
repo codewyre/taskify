@@ -7,6 +7,7 @@ build:
 	cd web && yarn build
 
 test:
+	cd web yarn eslint "src/**/*.ts" "src/**/*.tsx"
 	cd api && mvn test
 	cd web && yarn test
 
