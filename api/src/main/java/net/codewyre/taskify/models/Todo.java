@@ -8,4 +8,5 @@ public class Todo {
   public Date Created;
   public Date LastModified;
   public String Author;
+  public boolean State;
 }

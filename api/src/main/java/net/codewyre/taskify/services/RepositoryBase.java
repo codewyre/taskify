@@ -63,12 +63,18 @@ public class RepositoryBase {
           String name = col.name();
           try{
             String value = resultSet.getString(name);
-            field.set(
-              targetObject,
-              field
-                .getType()
-                .getConstructor(String.class)
-                .newInstance(value));
+            if (field.getType() == Boolean.class) {
+              field.set(
+                targetObject,
+                value.equals("b'1'") ? true : false);
+            } else {
+              field.set(
+                targetObject,
+                field
+                  .getType()
+                  .getConstructor(String.class)
+                  .newInstance(value));
+            }
           } catch (Exception e) { }
         }
 

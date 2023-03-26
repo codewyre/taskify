@@ -17,7 +17,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -63,6 +65,20 @@ public class TodoController extends KeycloakSecuredController {
     var response = ResponseEntity.ok(todo);
     this.logger.info("End createTodo with response", response);
     return response;
+  }
+
+  @PutMapping("/todo/{id}/state")
+  @CrossOrigin(origins = "*")
+  @PreAuthorize("isFullyAuthenticated()")
+  void updateTodoState(
+    @RequestBody boolean state,
+    @PathVariable("id") String id) throws SQLException {
+
+    this.logger.info("Begin updateTodoState for " + this.getUserId());
+    this._todoService.updateTodoState(id, state);
+
+    var response = ResponseEntity.noContent();
+    this.logger.info("End updateTodoState with response", response);
   }
   //#endregion
 }

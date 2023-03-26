@@ -19,4 +19,8 @@ public class TodoEntity {
 
   @Column(name="author")
   public String Author;
+
+  @Column(name="state")
+  public Boolean State;
+
 }

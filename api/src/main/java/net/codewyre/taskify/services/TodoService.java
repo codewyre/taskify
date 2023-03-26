@@ -30,25 +30,32 @@ public class TodoService {
 
     return entities
       .stream()
-      .map(entity -> this.toTodoEntity(entity))
+      .map(entity -> this.fromTodoEntity(entity))
       .toList();
   }
 
   public Todo createTodo(CreateTodoRequest payload, String userId) throws SQLException {
     var todoEntity = this._todoRepository.insertNewTodo(userId, payload.Title);
-    return this.toTodoEntity(todoEntity);
+    return this.fromTodoEntity(todoEntity);
+  }
+
+  public void updateTodoState(String id, boolean state) throws SQLException {
+    this._todoRepository.updateTodoState(id, state);
   }
   //#endregion
 
   //#region Private Methods
-  private Todo toTodoEntity(TodoEntity entity) {
+  private Todo fromTodoEntity(TodoEntity entity) {
     var todo = new Todo();
     todo.Id = entity.Id;
     todo.Author = entity.Author;
     todo.Created = new Date();
     todo.LastModified = new Date();
     todo.Title = entity.Title;
+    todo.State = entity.State;
     return todo;
   }
   //#endregion
+
+
 }

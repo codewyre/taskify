@@ -25,9 +25,7 @@ public class TodoRepository extends RepositoryBase {
       MessageFormat.format(
         """
           SELECT
-            `id`,
-            `subject`,
-            `author`
+            *
           FROM
             todos
           WHERE
@@ -62,5 +60,20 @@ public class TodoRepository extends RepositoryBase {
       this.escape(entity.Author)));
 
     return entity;
+  }
+
+  public void updateTodoState(String id, boolean state) throws SQLException {
+
+    this.execute(MessageFormat.format(
+      """
+        UPDATE
+          todos
+        SET
+          `state` = {1}
+        WHERE
+          `id` = ''{0}'';
+      """,
+      this.escape(id),
+      this.escape(state ? "true" : "false")));
   }
 }

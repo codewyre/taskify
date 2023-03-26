@@ -8,7 +8,7 @@ export interface CheckboxProps {
 }
 
 export function Checkbox(props: CheckboxProps): JSX.Element {
-  const [checked, setChecked] = createSignal(props.checked || false);
+  const [checked, setChecked] = createSignal(props.checked);
 
   function toggle(): void {
     const newState = !checked();

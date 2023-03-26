@@ -29,6 +29,7 @@ export class TodoService {
     await fetch(`http://localhost:8080/todo/${id}/state`, {
       method: 'PUT',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`
       },
       body: JSON.stringify(checked)

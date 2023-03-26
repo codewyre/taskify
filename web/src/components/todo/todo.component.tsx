@@ -24,6 +24,7 @@ export function TodoComponent(props: TodoProps): JSX.Element {
   }}>
     <div>
       <Checkbox
+        checked={props.todo.state}
         onChanged={checked => toggle(checked)}></Checkbox>
     </div>
     <div>{props.todo.title}</div>
