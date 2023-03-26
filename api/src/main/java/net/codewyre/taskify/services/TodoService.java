@@ -43,6 +43,7 @@ public class TodoService {
   //#region Private Methods
   private Todo toTodoEntity(TodoEntity entity) {
     var todo = new Todo();
+    todo.Id = entity.Id;
     todo.Author = entity.Author;
     todo.Created = new Date();
     todo.LastModified = new Date();
