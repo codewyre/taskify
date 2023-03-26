@@ -1,0 +1,41 @@
+$toggle-size: 16px;
+$padding: 1px;
+$border-width: 1px;
+
+.toggle-switch {
+  display: flex;
+
+  line-height: $toggle-size + $padding * 2 + $border-width * 2;
+
+  &__frame {
+    border: $border-width rgb(var(--app-fg)) solid;
+    border-radius: 2px;
+    padding: $padding;
+    box-sizing: border-box;
+
+    width: $toggle-size*2 + $padding*2 + $border-width*2;
+    height: $toggle-size + $padding*2 + $border-width*2;
+
+    position: relative;
+
+    &__toggle {
+      position: absolute;
+      left: 1px;
+      border-radius: 2px;
+
+      transition: left .3s ease-in-out;
+
+      background: rgb(var(--app-fg));
+      height: $toggle-size;
+      width: $toggle-size;
+
+      &--active {
+        left: 1px + $toggle-size;
+      }
+    }
+
+    + * {
+      margin-left: calc($toggle-size / 3);
+    }
+  }
+}
