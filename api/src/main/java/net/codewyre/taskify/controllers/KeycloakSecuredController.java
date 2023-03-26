@@ -27,6 +27,6 @@ public class KeycloakSecuredController {
   }
 
   public String getUserId() {
-    return this.getJwt().getId();
+    return this.getJwt().getSubject();
   }
 }
