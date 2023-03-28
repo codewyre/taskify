@@ -63,8 +63,8 @@ export function TodoListComponent(): JSX.Element {
 
     const todo = await todoService.createTodo(subject);
     updateTodos(todos => [
-      ...todos,
-      todo
+      todo,
+      ...todos
     ]);
 
     setAddTaskText('');
