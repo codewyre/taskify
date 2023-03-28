@@ -30,8 +30,11 @@ public class TodoRepository extends RepositoryBase {
           FROM
             todos
           WHERE
-            `author` = ''{0}''
-          AND state = ''{1}'';
+              `author` = ''{0}''
+            AND
+              state = ''{1}''
+          ORDER BY
+            COALESCE(lastModified, created) DESC;
         """,
         this.escape(userId),
         isToDo ? "1" : "0"),
@@ -75,7 +78,8 @@ public class TodoRepository extends RepositoryBase {
         UPDATE
           todos
         SET
-          `state` = {1}
+          `state` = {1},
+          `lastModified` = NOW()
         WHERE
           `id` = ''{0}'';
       """,
