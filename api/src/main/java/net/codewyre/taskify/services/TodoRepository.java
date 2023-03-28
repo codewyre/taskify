@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -41,6 +42,9 @@ public class TodoRepository extends RepositoryBase {
     entity.Id = UUID.randomUUID().toString();
     entity.Title = title;
     entity.Author = userId;
+    entity.State = false;
+    entity.Created = new Date();
+    entity.LastModified = new Date();
 
     this.execute(MessageFormat.format(
       """
