@@ -22,11 +22,11 @@ public class TodoService {
   //#endregion
 
   //#region Public Methods
-  public List<Todo> getTodosForUser(String userId) throws
+  public List<Todo> getTodosForUser(String userId, Boolean isTodo) throws
     InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
     NoSuchMethodException, SecurityException, SQLException {
 
-    var entities = this._todoRepository.getTodosForUser(userId);
+    var entities = this._todoRepository.getTodosForUser(userId, isTodo);
 
     return entities
       .stream()

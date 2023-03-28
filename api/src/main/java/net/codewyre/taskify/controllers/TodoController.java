@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class TodoController extends KeycloakSecuredController {
@@ -40,12 +41,16 @@ public class TodoController extends KeycloakSecuredController {
   @GetMapping("/todo")
   @CrossOrigin(origins = "*")
   @PreAuthorize("isFullyAuthenticated()")
-  ResponseEntity<List<Todo>> getTodos() throws
+  ResponseEntity<List<Todo>> getTodos(@RequestParam(required = false, value = "done") Boolean done) throws
     InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
     NoSuchMethodException, SecurityException, SQLException {
 
+    if (done == null) {
+      done = false;
+    }
+
     this.logger.info("Begin getTodos for " + this.getUserId());
-    var todos = this._todoService.getTodosForUser(this.getUserId());
+    var todos = this._todoService.getTodosForUser(this.getUserId(), done);
 
     var response = ResponseEntity.ok(todos);
     this.logger.info("End getTodos with response", response);

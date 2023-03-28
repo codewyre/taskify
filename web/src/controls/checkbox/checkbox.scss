@@ -7,12 +7,17 @@ $border-width: 1px;
 
   line-height: $toggle-size + $padding * 2 + $border-width * 2;
 
+  &__content {
+    margin-left: 8px;
+  }
+
   &__frame {
     border: $border-width rgba(var(--primary-accent), .2) solid;
     transition: border-color .3s ease-in-out;
     border-radius: 2px;
     padding: $padding;
     box-sizing: border-box;
+    display: flex;
 
     width: $toggle-size + $padding*2 + $border-width*2;
     height: $toggle-size + $padding*2 + $border-width*2;

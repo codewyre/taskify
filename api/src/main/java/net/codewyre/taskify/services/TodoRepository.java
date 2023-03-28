@@ -17,7 +17,7 @@ public class TodoRepository extends RepositoryBase {
     super();
   }
 
-  public Collection<TodoEntity> getTodosForUser(String userId) throws
+  public Collection<TodoEntity> getTodosForUser(String userId, Boolean isToDo) throws
     SQLException, InstantiationException, IllegalAccessException,
     IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
     SecurityException {
@@ -30,9 +30,11 @@ public class TodoRepository extends RepositoryBase {
           FROM
             todos
           WHERE
-            `author` = ''{0}'';
+            `author` = ''{0}''
+          AND state = ''{1}'';
         """,
-        this.escape(userId)),
+        this.escape(userId),
+        isToDo ? "1" : "0"),
       TodoEntity.class);
   }
 

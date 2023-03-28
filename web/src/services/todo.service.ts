@@ -11,10 +11,10 @@ export class TodoService {
   //#endregion
 
   //#region Public Methods
-  public async getMyTodos(): Promise<Todo[]> {
+  public async getMyTodos(done: boolean = false): Promise<Todo[]> {
     const { jsonWebToken: jwt } = this._authenticationService;
 
-    const response = await fetch('http://localhost:8080/todo', {
+    const response = await fetch(`http://localhost:8080/todo?done=${JSON.stringify(done)}`, {
       headers: {
         Authorization: `Bearer ${jwt}`
       }

@@ -27,5 +27,8 @@ export function Checkbox(props: CheckboxProps): JSX.Element {
         "checkbox__frame__toggle--active": checked(),
       }}></div>
     </div>
+    <div class="content">
+      {props.children}
+    </div>
   </div>);
 }
